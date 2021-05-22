@@ -1,6 +1,14 @@
+import BookCard from "../BookCard";
+import CardHeader from "../CardHeader";
+
 function BookList() {
     return (
-        <div>BookList</div>
+        <div className="card bg-dark mx-5">
+            <CardHeader>Results</CardHeader>
+            <BookCard />
+            <BookCard />
+            <BookCard />
+        </div>
     )
 };
 
