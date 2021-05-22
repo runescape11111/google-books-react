@@ -3,7 +3,7 @@ import NavItem from "./NavItem";
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark" style={{backgroundColor: "#222"}}>
             <Link className="navbar-brand" exact to="/">
                 Google Books React
             </Link>

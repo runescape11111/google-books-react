@@ -1,6 +1,11 @@
 function Jumbotron() {
     return (
-        <div>Jumbotron</div>
+        <div className="jumbotron jumbotron-fluid bg-dark">
+            <div className="container">
+                <h1 className="display-4 text-light text-center">Google Search React</h1>
+                <p className="lead text-light text-center">Search a book of interest and save it</p>
+            </div>
+        </div>
     )
 };
 
