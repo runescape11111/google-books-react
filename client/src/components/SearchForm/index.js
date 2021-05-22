@@ -14,7 +14,7 @@ function SearchForm() {
                             <input type="text" className="form-control" id="search-book" placeholder="Search a book" />
                         </div>
                         <div className="col-sm-1 pt-3">
-                            <button type="submit" className="btn btn-light">Search</button>
+                            <button type="submit" className="btn btn-light px-4">Search</button>
                         </div>
                     </div>
                 </form>
