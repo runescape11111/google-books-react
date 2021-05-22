@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Search />
