@@ -11,7 +11,7 @@ function Search() {
 
     async function searchBooks(e) {
         e.preventDefault();
-        const searchResult = await API.searchBooks(state.searchTerm);
+        const searchResult = await API.searchBooks(state.searchTerm.trim());
         setState({searchTerm: "", books: searchResult.data.items});
     }
 
