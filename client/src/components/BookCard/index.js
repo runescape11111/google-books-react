@@ -1,6 +1,5 @@
 function BookCard({book}) {
     const vol = book.volumeInfo;
-    console.log(vol);
     const authors = vol.authors.join(", ");
     return (
         <div className="card bg-dark mx-3 my-3 border-light">
