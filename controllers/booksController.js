@@ -1,4 +1,4 @@
-import db from "../models/Book";
+const db = require("../models/Book");
 
 const booksController = {
     getAll: function (req,res) {
@@ -19,3 +19,5 @@ const booksController = {
             .catch(err => res.status(422).json(err));
     }
 }
+
+module.exports = booksController;
