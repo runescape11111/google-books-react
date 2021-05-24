@@ -19,7 +19,7 @@ function BookList({books, handleSave, handleDelete}) {
         <div className="card bg-dark mx-5">
             <CardHeader>Results</CardHeader>
             {books.map(book => {
-                return (<BookCard key={book.id} handleSave={handleSave} book={book}/>)
+                return (<BookCard key={book.id} handleSave={handleSave} handleDelete={handleDelete} book={book}/>)
             })}
         </div>
     )

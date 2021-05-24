@@ -14,9 +14,9 @@ const booksController = {
     },
 
     deleteBook: function (req,res) {
-        Book.findById({id: req.params.id})
-            .then(book => book.remove())
-            .catch(err => res.status(422).json(err));
+        Book.deleteOne({id: req.params.id})
+            .then(book => res.json(book))
+            .catch(err => res.status(433).json(err));
     }
 }
 

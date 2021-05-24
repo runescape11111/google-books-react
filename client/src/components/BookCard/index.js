@@ -28,9 +28,9 @@ function BookCard({book, handleSave, handleDelete}) {
                                 </p>
                             </div>
                             <div className="col-12 d-flex justify-content-end">
-                                {handleSave && <button value={book.id} className="btn btn-success ml-4 px-4" onClick={handleSave}>Save</button>}                               
-                                {handleDelete && <button value={book.id} className="btn btn-warning ml-4 px-4" onClick={handleDelete}>Delete</button>}                               
                                 <a href={book.url} target="_blank" rel="noreferrer" className="btn btn-light ml-4 px-4">View</a>
+                                {handleSave && <button value={book.id} className="btn btn-success ml-4 px-4" onClick={handleSave}>Save</button>}                               
+                                {handleDelete && <button value={book.id} className="btn btn-danger ml-4 px-4" onClick={handleDelete}>Delete</button>}                               
                             </div>
                         </div>
                     </div>
