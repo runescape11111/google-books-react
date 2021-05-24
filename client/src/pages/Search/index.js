@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import SearchForm from "../../components/SearchForm";
 import BookList from "../../components/BookList";
 import API from "../../utils/API";
+import { ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Search() {
     const [state, setState] = useState({
@@ -30,11 +33,16 @@ function Search() {
         setState({ ...state, searchTerm: e.target.value});
     };
 
+    function saveToast() {
+        return toast.success("Book saved!");
+    }
+
     async function handleSave(e) {
         e.preventDefault();
         const id = e.target.value;
         const book = state.books.filter(book => book.id=== id);
         await API.saveBook(book[0]);
+        saveToast();
         setState({ ...state, books: state.books.filter(book => book.id !== id)});
     }
 
@@ -42,6 +50,7 @@ function Search() {
         <>
             <SearchForm value={state.searchTerm} searchBooks={searchBooks} handleInputChange={handleInputChange} />
             <BookList books={state.books} handleSave={handleSave} />
+            <ToastContainer autoClose={2000} hideProgressBar />
         </>
     )
 };
