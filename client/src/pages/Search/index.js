@@ -12,7 +12,19 @@ function Search() {
     async function searchBooks(e) {
         e.preventDefault();
         const searchResult = await API.searchBooks(state.searchTerm.trim());
-        setState({searchTerm: "", books: searchResult.data.items});
+        const books = searchResult.data.items;
+        const booksCleaned = books.map(book => {
+            return {
+                id: book.id,
+                title: book.volumeInfo.title,
+                authors: book.volumeInfo.authors,
+                url: book.volumeInfo.infoLink,
+                img: book.volumeInfo.imageLinks.thumbnail,
+                description: book.volumeInfo.description
+            }
+        });
+        console.log(booksCleaned);
+        setState({searchTerm: "", books: booksCleaned});
     }
 
     function handleInputChange(e) {
@@ -22,7 +34,8 @@ function Search() {
 
     function handleSave(e) {
         e.preventDefault();
-        console.log("clicked");
+        console.log(e.target.value);
+        // setState({ ...state, books: books.filter()})
     }
 
     return (
