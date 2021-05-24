@@ -5,23 +5,23 @@ import Saved from "./pages/Saved";
 import Navbar from "./components/Navbar";
 
 function App() {
-  return (
-      <Router>
-        <Navbar />
-        <Jumbotron />
-        <Switch>
-          <Route exact path="/">
-            <Search />
-          </Route>
-          <Route exact path="/saved">
-            <Saved />
-          </Route>
-          <Route>
-            <Redirect to="/" />
-          </Route>
-        </Switch>
-      </Router>
-  );
+    return (
+        <Router>
+            <Navbar />
+            <Jumbotron />
+            <Switch>
+                <Route exact path="/">
+                    <Search />
+                </Route>
+                <Route exact path="/saved">
+                    <Saved />
+                </Route>
+                <Route>
+                    <Redirect to="/" />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
