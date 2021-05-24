@@ -12,8 +12,7 @@ function Search() {
     async function searchBooks(e) {
         e.preventDefault();
         const searchResult = await API.searchBooks(state.searchTerm.trim());
-        const books = searchResult.data.items;
-        const booksCleaned = books.map(book => {
+        const books = searchResult.data.items.map(book => {
             return {
                 id: book.id,
                 title: book.volumeInfo.title,
@@ -23,7 +22,7 @@ function Search() {
                 description: book.volumeInfo.description
             }
         });
-        setState({searchTerm: "", books: booksCleaned});
+        setState({searchTerm: "", books});
     }
 
     function handleInputChange(e) {
@@ -31,10 +30,11 @@ function Search() {
         setState({ ...state, searchTerm: e.target.value});
     };
 
-    function handleSave(e) {
+    async function handleSave(e) {
         e.preventDefault();
         const id = e.target.value;
-        // console.log(e.target.value);
+        const book = state.books.filter(book => book.id=== id);
+        await API.saveBook(book[0]);
         setState({ ...state, books: state.books.filter(book => book.id !== id)});
     }
 

@@ -9,11 +9,11 @@ const API = {
         return axios.get("/api/books");
     },
 
-    saveBooks: function(book) {
+    saveBook: function(book) {
         return axios.post("/api/books", book);
     },
 
-    deleteBooks: function(id) {
+    deleteBook: function(id) {
         return axios.delete("/api/books/"+id);
     }
 };
