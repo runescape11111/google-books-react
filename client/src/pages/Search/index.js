@@ -23,7 +23,6 @@ function Search() {
                 description: book.volumeInfo.description
             }
         });
-        console.log(booksCleaned);
         setState({searchTerm: "", books: booksCleaned});
     }
 
@@ -34,8 +33,9 @@ function Search() {
 
     function handleSave(e) {
         e.preventDefault();
-        console.log(e.target.value);
-        // setState({ ...state, books: books.filter()})
+        const id = e.target.value;
+        // console.log(e.target.value);
+        setState({ ...state, books: state.books.filter(book => book.id !== id)});
     }
 
     return (
