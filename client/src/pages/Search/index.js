@@ -20,10 +20,15 @@ function Search() {
         setState({ ...state, searchTerm: e.target.value});
     };
 
+    function handleSave(e) {
+        e.preventDefault();
+        console.log("clicked");
+    }
+
     return (
         <>
             <SearchForm value={state.searchTerm} searchBooks={searchBooks} handleInputChange={handleInputChange} />
-            <BookList books={state.books} />
+            <BookList books={state.books} handleSave={handleSave} />
         </>
     )
 };

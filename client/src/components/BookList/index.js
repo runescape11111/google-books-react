@@ -4,7 +4,7 @@ import CardHeader from "../CardHeader";
 // import fakeData from "../../fakeData.json";
 // const fakeSearchResults = fakeData.items;
 
-function BookList({books}) {
+function BookList({books, handleSave}) {
     if (!books.length) {
         return (
             <div className="card bg-dark mx-5">
@@ -19,7 +19,7 @@ function BookList({books}) {
         <div className="card bg-dark mx-5">
             <CardHeader>Results</CardHeader>
             {books.map(book => {
-                return (<BookCard key={book.id} book={book}/>)
+                return (<BookCard key={book.id} handleSave={handleSave} book={book}/>)
             })}
         </div>
     )

@@ -1,4 +1,4 @@
-function BookCard({book}) {
+function BookCard({book, handleSave}) {
     const vol = book.volumeInfo;
     const authors = vol.authors.join(", ");
     return (
@@ -29,7 +29,7 @@ function BookCard({book}) {
                                 </p>
                             </div>
                             <div className="col-12 d-flex justify-content-end">
-                                <button className="btn btn-success ml-4 px-4">Save</button>
+                                <button className="btn btn-success ml-4 px-4" onClick={handleSave}>Save</button>
                                 <a href={vol.infoLink} target="_blank" rel="noreferrer" className="btn btn-light ml-4 px-4">View</a>
                             </div>
                         </div>
