@@ -1,4 +1,4 @@
-function BookCard({book, handleSave}) {
+function BookCard({book, handleSave, handleDelete}) {
     const authors = book.authors.join(", ");
     return (
         <div className="card bg-dark mx-3 my-3 border-light">
@@ -28,7 +28,8 @@ function BookCard({book, handleSave}) {
                                 </p>
                             </div>
                             <div className="col-12 d-flex justify-content-end">
-                                <button value={book.id} className="btn btn-success ml-4 px-4" onClick={handleSave}>Save</button>
+                                {handleSave && <button value={book.id} className="btn btn-success ml-4 px-4" onClick={handleSave}>Save</button>}                               
+                                {handleDelete && <button value={book.id} className="btn btn-warning ml-4 px-4" onClick={handleDelete}>Delete</button>}                               
                                 <a href={book.url} target="_blank" rel="noreferrer" className="btn btn-light ml-4 px-4">View</a>
                             </div>
                         </div>

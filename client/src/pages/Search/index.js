@@ -33,8 +33,8 @@ function Search() {
         setState({ ...state, searchTerm: e.target.value});
     };
 
-    function saveToast() {
-        return toast.success("Book saved!");
+    function saveToast(title) {
+        return toast.success(`Book saved successfully: ${title}`);
     }
 
     async function handleSave(e) {
@@ -42,7 +42,7 @@ function Search() {
         const id = e.target.value;
         const book = state.books.filter(book => book.id=== id);
         await API.saveBook(book[0]);
-        saveToast();
+        saveToast(book[0].title);
         setState({ ...state, books: state.books.filter(book => book.id !== id)});
     }
 
@@ -50,7 +50,7 @@ function Search() {
         <>
             <SearchForm value={state.searchTerm} searchBooks={searchBooks} handleInputChange={handleInputChange} />
             <BookList books={state.books} handleSave={handleSave} />
-            <ToastContainer autoClose={2000} hideProgressBar />
+            <ToastContainer autoClose={5000} hideProgressBar />
         </>
     )
 };

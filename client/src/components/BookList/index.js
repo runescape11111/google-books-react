@@ -4,7 +4,7 @@ import CardHeader from "../CardHeader";
 // import fakeData from "../../fakeData.json";
 // const fakeSearchResults = fakeData.items;
 
-function BookList({books, handleSave}) {
+function BookList({books, handleSave, handleDelete}) {
     if (!books.length) {
         return (
             <div className="card bg-dark mx-5">
